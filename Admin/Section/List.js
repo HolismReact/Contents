@@ -9,7 +9,9 @@ const filters = <>
 
 const sorts = [
     {
-        "caption": "A-Z"
+        "caption": "A-Z",
+        "column": "Title",
+        "direction": "asc"
     }
 ]
 
