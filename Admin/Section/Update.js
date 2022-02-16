@@ -7,11 +7,11 @@ const inputs = <>
     />
 </>
 
-const UpsrtSection = () => {
+const UpdateSection = () => {
     return <Form
         entityType='Section'
         inputs={inputs}
     />
 }
 
-export default UpsrtSection
+export default UpdateSection

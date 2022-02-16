@@ -1,5 +1,5 @@
 import { List, Text } from '@List'
-import UpsertSection from './Upsert'
+import UpdateSection from './Update'
 
 const filters = <>
     <Text
@@ -31,7 +31,7 @@ const Sections = () => {
         sorts={sorts}
         headers={headers}
         row={row}
-        create={UpsertSection}
+        edit={UpdateSection}
     />
 }
 
