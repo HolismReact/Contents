@@ -1,4 +1,6 @@
 import Sections from './Section/List'
+import SectionItems from './Section/Items'
+import SectionActions from './Section/Actions'
 import Images from './Image/List'
 import Texts from './Text/List'
 
@@ -8,11 +10,19 @@ const ContentRoutes = [
         "component": Sections
     },
     {
-        "path": "/images",
+        "path": "/section/items",
+        "component": SectionItems
+    },
+    {
+        "path": "/section/actions",
+        "component": SectionActions
+    },
+    {
+        "path": "/staticImages",
         "component": Images
     },
     {
-        "path": "/texts",
+        "path": "/staticTexts",
         "component": Texts
     }
 ]

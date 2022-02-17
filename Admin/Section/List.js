@@ -1,4 +1,6 @@
-import { List, Text, Image, TitleSubtitle, ValueWithTitle } from '@List'
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import BoltIcon from '@mui/icons-material/Bolt';
+import { List, Text, Image, TitleSubtitle, ValueWithTitle, ItemAction } from '@List'
 import UpdateSection from './Update'
 
 const filters = <>
@@ -40,6 +42,19 @@ const row = (item) => <>
     <td>{item.name}</td>
 </>
 
+const itemActions = (item) => <>
+    <ItemAction
+        title='Manage actions'
+        icon={BoltIcon}
+        goTo={`/section/actions?sectionId=${item.id}`}
+    />
+    <ItemAction
+        title='Manage items'
+        icon={ListAltIcon}
+        goTo={`/section/items?sectionId=${item.id}`}
+    />
+</>
+
 const Sections = () => {
     return <List
         title='Sections'
@@ -48,6 +63,7 @@ const Sections = () => {
         sorts={sorts}
         headers={headers}
         row={row}
+        itemActions={itemActions}
         edit={UpdateSection}
     />
 }
