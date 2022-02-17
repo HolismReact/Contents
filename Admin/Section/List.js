@@ -1,4 +1,4 @@
-import { List, Text } from '@List'
+import { List, Text, Image, TitleSubtitle, ValueWithTitle } from '@List'
 import UpdateSection from './Update'
 
 const filters = <>
@@ -16,11 +16,28 @@ const sorts = [
 ]
 
 const headers = <>
-    <th>Title</th>
+    <th></th>
+    <th>Content</th>
+    <th>Name</th>
 </>
 
 const row = (item) => <>
-    <td>{item.title}</td>
+    <td>
+        <Image
+            url={item.relatedItems.imageUrl}
+            uploadUrl={`/section/setImage?sectionId=${item.id}`}
+        />
+    </td>
+    <td>
+        <TitleSubtitle
+            title={<ValueWithTitle
+                value={item.title}
+                title={item.summary}
+            />}
+            subtitle={item.subtitle}
+        />
+    </td>
+    <td>{item.name}</td>
 </>
 
 const Sections = () => {
