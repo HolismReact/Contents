@@ -2,6 +2,7 @@ import AbcIcon from '@mui/icons-material/Abc';
 
 import Images from './Image/List'
 import Pages from './Page/List'
+import PageContent from './Page/Content'
 import Sections from './Section/List'
 import SectionItems from './Section/Items'
 import SectionActions from './Section/Actions'
@@ -11,6 +12,10 @@ const ContentRoutes = [
     {
         "path": "/pages",
         "component": Pages
+    },
+    {
+        "path": "/page/editContent",
+        "component": PageContent
     },
     {
         "path": "/sections",
