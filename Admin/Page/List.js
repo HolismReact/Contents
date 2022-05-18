@@ -8,11 +8,6 @@ const filters = <>
         column='Title'
         placehodler='Title'
     />
-    <Enum
-        column='StateId'
-        placeholder='State'
-        entityType='BlogState'
-    />
 </>
 
 const headers = <>
@@ -25,15 +20,15 @@ const headers = <>
         <td>
             <Image
                 url={item.relatedItems.imageUrl}
-                uploadUrl={`/blogPost/setImage?postId=${item.id}`}
+                uploadUrl={`/page/setImage?pageId=${item.id}`}
             />
         </td>
         <td>
-            <a target='_blank' href={`${app.env('BLOG_URL')}/${item.slug}`}>
+            <a target='_blank' href={`${app.env('PAGES_BASE_URL')}/${item.slug}`}>
                 <TitleSubtitle
                     title={<ValueWithTitle
                         value={item.title}
-                        title={item.summary}
+                        title={item.description}
                     />}
                     subtitle={item.slug}
                 />
@@ -43,7 +38,7 @@ const headers = <>
             <BooleanProperty
                 column='acceptsComment'
                 value={item.acceptsComment}
-                actionUrl={`/blogPost/toggleCommentAcceptance/${item.id}`}
+                actionUrl={`/page/toggleCommentAcceptance/${item.id}`}
             />
         </td>
  </>
@@ -52,12 +47,12 @@ const itemActions = (item) => <>
     <ItemAction
         title='Manage SEO'
         icon={FindInPageIcon}
-        goTo={`/entityParameter?entityType=blogPost&entityGuid=${item.guid}`}
+        goTo={`/entityParameter?entityType=page&entityGuid=${item.guid}`}
     />
     <ItemAction
         title='Edit content'
         icon={TextSnippetIcon}
-        goTo={`/post/editContent?id=${item.id}`}
+        goTo={`/page/editContent?id=${item.id}`}
     />
 </>
  const Pages = () => {

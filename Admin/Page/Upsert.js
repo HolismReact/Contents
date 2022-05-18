@@ -8,14 +8,14 @@ const inputs = <>
     />
     <Slug />
     <LongText
-        column="Summary"
-        placehodler="Summary"
+        column="Description"
+        placehodler="Description"
     />
 </>
 
 const UpsertPage = () => {
     return <Form
-        entityType='BlogPost'
+        entityType='Page'
         inputs={inputs}
     />
 }
