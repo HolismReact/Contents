@@ -1,3 +1,5 @@
+import AbcIcon from '@mui/icons-material/Abc';
+
 import Sections from './Section/List'
 import SectionItems from './Section/Items'
 import SectionActions from './Section/Actions'
@@ -27,4 +29,30 @@ const ContentRoutes = [
     }
 ]
 
+const ContentMenu = [
+    {
+        "title": "Contents",
+        "icon": AbcIcon,
+        "children": [
+            {
+                "title": "Pages",
+                "url": "/pages"
+            },
+            {
+                "title": "Sections",
+                "url": "/sections"
+            },
+            {
+                "title": "Texts",
+                "url": "/texts"
+            },
+            {
+                "title": "Images",
+                "url": "/images"
+            }
+        ]
+    }
+]
+
 export { ContentRoutes };
+export { ContentMenu }
