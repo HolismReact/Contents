@@ -1,12 +1,17 @@
 import AbcIcon from '@mui/icons-material/Abc';
 
+import Images from './Image/List'
+import Pages from './Page/List'
 import Sections from './Section/List'
 import SectionItems from './Section/Items'
 import SectionActions from './Section/Actions'
-import Images from './Image/List'
 import Texts from './Text/List'
 
 const ContentRoutes = [
+    {
+        "path": "/pages",
+        "component": Pages
+    },
     {
         "path": "/sections",
         "component": Sections
