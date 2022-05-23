@@ -1,4 +1,5 @@
-import { List } from '@List'
+import SearchIcon from '@mui/icons-material/Search'
+import { List, ItemAction } from '@List'
 
 const headers = <>
     <th>Title</th>
@@ -7,6 +8,16 @@ const headers = <>
 const row = (item) => {
     return <>
         <td>{item.title}</td>
+    </>
+}
+
+const itemActions = (item) => {
+    return <>
+        <ItemAction
+            title='Search Google'
+            icon={SearchIcon}
+            goTo={`https://images.google.com`}
+        />
     </>
 }
 
