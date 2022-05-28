@@ -2,6 +2,7 @@ import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import FindInPageIcon from '@mui/icons-material/FindInPage';
 import { List, Text, Enum, ItemAction, Image, BooleanProperty, ValueWithTitle, TitleSubtitle, app } from '@List'
 import UpsertPage from './Upsert'
+import { EntitySeo } from '../../Seo/Exports'
 
 const filters = <>
     <Text
@@ -16,38 +17,37 @@ const headers = <>
     <th>Comments enabled?</th>
 </>
 
- const row = (item) => <>
-        <td>
-            <Image
-                url={item.relatedItems.imageUrl}
-                uploadUrl={`/page/setImage?pageId=${item.id}`}
+const row = (item) => <>
+    <td>
+        <Image
+            url={item.relatedItems.imageUrl}
+            uploadUrl={`/page/setImage?pageId=${item.id}`}
+        />
+    </td>
+    <td>
+        <a target='_blank' href={`${app.env('PAGES_BASE_URL')}/${item.slug}`}>
+            <TitleSubtitle
+                title={<ValueWithTitle
+                    value={item.title}
+                    title={item.description}
+                />}
+                subtitle={item.slug}
             />
-        </td>
-        <td>
-            <a target='_blank' href={`${app.env('PAGES_BASE_URL')}/${item.slug}`}>
-                <TitleSubtitle
-                    title={<ValueWithTitle
-                        value={item.title}
-                        title={item.description}
-                    />}
-                    subtitle={item.slug}
-                />
-            </a>
-        </td>
-        <td>
-            <BooleanProperty
-                column='acceptsComment'
-                value={item.acceptsComment}
-                actionUrl={`/page/toggleCommentAcceptance/${item.id}`}
-            />
-        </td>
- </>
+        </a>
+    </td>
+    <td>
+        <BooleanProperty
+            column='acceptsComment'
+            value={item.acceptsComment}
+            actionUrl={`/page/toggleCommentAcceptance/${item.id}`}
+        />
+    </td>
+</>
 
 const itemActions = (item) => <>
-    <ItemAction
-        title='Manage SEO'
-        icon={FindInPageIcon}
-        goTo={`/entityParameter?entityType=page&entityGuid=${item.guid}`}
+    <EntitySeo
+        entityType='Page'
+        entityGuid={item.guid}
     />
     <ItemAction
         title='Edit content'
@@ -55,8 +55,8 @@ const itemActions = (item) => <>
         goTo={`/page/editContent?id=${item.id}`}
     />
 </>
- const Pages = () => {
-     return <List
+const Pages = () => {
+    return <List
         title="Pages"
         entityType="Page"
         filters={filters}
@@ -66,7 +66,7 @@ const itemActions = (item) => <>
         hasEdit={true}
         hasDelete={true}
         itemActions={itemActions}
-     />
- }
+    />
+}
 
- export default Pages
+export default Pages
